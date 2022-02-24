@@ -11,8 +11,10 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserAcceptanceTest {
 
@@ -22,7 +24,10 @@ public class BrowserAcceptanceTest {
 
 	@Before
 	public void setUp() throws Exception {
-		driver = new FirefoxDriver();
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 		application = new EmbeddedJettyApplication();
 		applicationThread = new Thread(application);
 		applicationThread.setName("ApplicationTest");
