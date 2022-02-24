@@ -23,8 +23,10 @@ public class BrowserAcceptanceTest {
 
 	@Before
 	public void setUp() throws Exception {
-		WebDriverManager.chromedriver().setup();		
-		driver = new ChromeDriver();
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 		application = new EmbeddedJettyApplication();
 		applicationThread = new Thread(application);
 		applicationThread.setName("ApplicationTest");
