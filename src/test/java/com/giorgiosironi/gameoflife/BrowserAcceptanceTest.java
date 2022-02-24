@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserAcceptanceTest {
 
@@ -22,6 +22,7 @@ public class BrowserAcceptanceTest {
 
 	@Before
 	public void setUp() throws Exception {
+		WebDriverManager.FirefoxDriver.setup();		
 		driver = new FirefoxDriver();
 		application = new EmbeddedJettyApplication();
 		applicationThread = new Thread(application);
