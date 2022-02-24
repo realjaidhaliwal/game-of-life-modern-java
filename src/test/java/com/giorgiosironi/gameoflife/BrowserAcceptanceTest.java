@@ -11,7 +11,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserAcceptanceTest {
@@ -22,8 +23,8 @@ public class BrowserAcceptanceTest {
 
 	@Before
 	public void setUp() throws Exception {
-		WebDriverManager.firefoxdriver().setup();		
-		driver = new FirefoxDriver();
+		WebDriverManager.chromedriver().setup();		
+		driver = new ChromeDriver();
 		application = new EmbeddedJettyApplication();
 		applicationThread = new Thread(application);
 		applicationThread.setName("ApplicationTest");
