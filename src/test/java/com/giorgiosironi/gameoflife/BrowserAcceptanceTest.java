@@ -22,7 +22,7 @@ public class BrowserAcceptanceTest {
 
 	@Before
 	public void setUp() throws Exception {
-		WebDriverManager.FirefoxDriver.setup();		
+		WebDriverManager.firefoxdriver.setup();		
 		driver = new FirefoxDriver();
 		application = new EmbeddedJettyApplication();
 		applicationThread = new Thread(application);
